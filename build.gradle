@@ -1,0 +1,57 @@
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+dependencies {
+    providedCompile 'javax:javaee-api:7.0'
+    
+    compile 'net.bootsfaces:bootsfaces:0.8.0-SNAPSHOT',
+            'org.picketlink:picketlink-api:2.7.0.Final',
+            'org.picketlink:picketlink-impl:2.7.0.Final'
+    
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+}
+
+//if (project.hasProperty('evaluatingIDE') && project.property('evaluatingIDE') == 'NetBeans') {
+//    sourceSets.main.java.srcDir(webAppDir.toString() + '/WEB-INF')
+//}
+
+ext.deployBase="/opt/wildfly-9.0.1.Final/standalone/deployments"
+ext.deployTarget="$deployBase/$war.archiveName"
+ext.dodeployLCFname = "$deployTarget" + ".dodeploy"
+ext.deployedLCFname="$deployTarget" + ".deployed"
+ext.undeployedLCFname="$deployTarget" + ".undeployed"
+
+
+task updateResources(type: Copy) {
+    from 'src/main/webapp'
+    into deployTarget
+}
+
+task deployWar(type: Copy){
+    
+    into deployTarget
+    with war
+    
+    doLast{
+        def f = file(dodeployLCFname)
+        f.lastModified = System.currentTimeMillis()
+        f.createNewFile()        
+    }
+}
+
+task undeployWar <<{
+    delete deployedLCFname
+    delete deployTarget
+    delete undeployedLCFname
+}
+
+deployWar.dependsOn war

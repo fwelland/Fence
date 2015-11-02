@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <head>
+        <title>secured home page</title> 
+    </head>
+    <body>     
+        <p>Secure Home</p>
+
+        <div>Congratulations! You are currently logged in as: <b>#{identity.account.loginName}</b></div>
+
+        <h:form>
+            <h:commandButton id="logout" value="Log out" action="#{identity.logout}" />
+        </h:form>
+
+        <br style="clear:both"/>
+    </body> 
+</html>
