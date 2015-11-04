@@ -1,5 +1,6 @@
 package fhw;
 
+import javax.enterprise.context.RequestScoped;
 import org.picketlink.idm.model.basic.User;
 import org.picketlink.authentication.BaseAuthenticator;
 import org.picketlink.credential.DefaultLoginCredentials;
@@ -10,6 +11,7 @@ import org.picketlink.annotations.PicketLink;
 import org.picketlink.authentication.Authenticator;
 
 @PicketLink
+@RequestScoped
 public class MyAuthenticator
     extends BaseAuthenticator
 {
@@ -25,7 +27,7 @@ public class MyAuthenticator
         if ("jsmith".equals(credentials.getUserId())  && "abc123".equals(credentials.getPassword()))
         {
             setStatus(Authenticator.AuthenticationStatus.SUCCESS);
-            setAccount(new User("jsmith"));
+            setAccount(new User("jsmith"));  
         }
         else
         {

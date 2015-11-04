@@ -34,7 +34,8 @@
                         <b:iconAwesome name="key" />
                     </f:facet>
                 </b:inputText>
-                <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" action="#{identity.login()}"/>
+                <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" 
+                                 actionListener="#{identity.login()}" />
             </h:form>
         </b:container>
     </h:body>
