@@ -26,6 +26,18 @@
                 
         <b:container fluid="true" >
             <b:row >
+                <b:column span="4">
+                    <b:panel id="frogPanel"  title="Create A BIG Frog!">
+                        <h:form id="createFrogForm" prependId="false">
+                            <b:inputText id="frogName" fieldSize="md" />
+                            <b:selectOneMenu id="frogType" fieldSize="md" />
+                            <b:buttonGroup size="md" >
+                                <b:button value="Save" />
+                                <b:button value="Clear" />
+                            </b:buttonGroup>
+                        </h:form>
+                    </b:panel>
+                </b:column>
                 <b:column span="4" >
                     <b:panel>
                         <f:facet name="heading">You are logged in</f:facet>

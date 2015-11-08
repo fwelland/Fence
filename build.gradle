@@ -35,6 +35,7 @@ ext.undeployedLCFname="$deployTarget" + ".undeployed"
 task updateResources(type: Copy) {
     from 'src/main/webapp'
     into deployTarget
+    include '**/*.xhtml'
 }
 
 task deployWar(type: Copy){
