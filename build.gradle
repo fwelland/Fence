@@ -30,7 +30,6 @@ ext.dodeployLCFname = "$deployTarget" + ".dodeploy"
 ext.deployedLCFname="$deployTarget" + ".deployed"
 ext.undeployedLCFname="$deployTarget" + ".undeployed"
 
-
 task updateResources(type: Copy) {
     from 'src/main/webapp'
     into deployTarget
