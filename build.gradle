@@ -23,6 +23,7 @@ dependencies {
 if (project.hasProperty('evaluatingIDE') && project.property('evaluatingIDE') == 'NetBeans') {
     sourceSets.main.java.srcDir(webAppDir.toString() )
 }
+
 //+ '/WEB-INF'
 
 ext.deployBase="/opt/wildfly-9.0.1.Final/standalone/deployments"
