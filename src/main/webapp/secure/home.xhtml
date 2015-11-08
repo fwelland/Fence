@@ -8,6 +8,10 @@
     
     <h:head>
         <title>Secured Home Page some Bootsfaces layout and stuff.</title> 
+        
+        <ui:fragment rendered="#{not identity.loggedIn}">
+            <meta http-equiv="Refresh" content="0; URL=/" />        
+        </ui:fragment>                        
     </h:head>    
     
     <h:body styleClass="body" >        
