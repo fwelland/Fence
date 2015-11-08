@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+     
+    <h:head>
+        <title>Failed Login</title>       
+    </h:head>
+    
+    <h:body styleClass="body" >        
+        <style type="text/css">            
+            .panel-heading
+            {
+                border-color: #337ab7;
+                background-color: #337ab7;                
+            }
+            
+            .panel
+            {
+                border:1px solid #337ab7;                 
+            }
+        </style>
+        
+        
+        <b:container fluid="true" >
+            <b:row >
+                <b:column span="4">
+                    <b:panel >
+                        <f:facet name="heading">This is a title</f:facet>
+                        Login Failed!
+                    </b:panel>
+                </b:column>
+            </b:row>                        
+        </b:container>            
+    </h:body>
+</html>
