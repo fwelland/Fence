@@ -29,25 +29,40 @@
                 <b:column span="4">
                     <b:panel id="frogPanel"  title="Create A BIG Frog!">
                         <h:form id="createFrogForm" prependId="false">
-                            <b:inputText id="frogName" fieldSize="md" />
-                            <b:selectOneMenu id="frogType" fieldSize="md" />
-                            <b:buttonGroup size="md" >
-                                <b:button value="Save" />
-                                <b:button value="Clear" />
-                            </b:buttonGroup>
+                            <b:label text="Frog's name" />
+                            <b:inputText id="frogName" fieldSize="md" value="#{frogController.name}"/>
+                            <b:label text="Frog's Type" />
+                            <b:selectOneMenu id="frogType" fieldSize="md" value="#{frogController.type}">
+                                <f:selectItems value="#{enumFactory.frogTypes}" var="ft" itemLabel="#{ft.label}" itemValue="#{ft}" />
+                            </b:selectOneMenu>
+                            <div style="text-align: right">
+                                <b:buttonGroup id="butts" size="md"  >                                
+                                    <b:commandButton value="Submit"  action="#{frogController.submit()}"/>
+                                    <b:button value="Save" />
+                                    <b:button value="Clear" />
+                                </b:buttonGroup>
+                            </div>
                         </h:form>
                     </b:panel>
                 </b:column>
                 <b:column span="4" >
-                    <b:panel>
-                        <f:facet name="heading">You are logged in</f:facet>
-                        <h:form>
+                    <b:panel title="You are logged in">
+                        <h:form prependId="false" >
+                            <br/>
                             <div>Congratulations! You are currently logged in as: <b>#{identity.account.loginName}</b></div>                    
-                            <h:commandButton id="logout" value="Log out" action="#{identity.logout}" />
+                            <br />
+                            <b:commandButton id="logout" value="Log out" action="#{identity.logout}" />
                         </h:form>                
                     </b:panel>
-            </b:column>                    
+                </b:column>                    
             </b:row>                
+            <b:row>
+                <b:column span="4" >
+                    <b:panel title="Submitted Data">
+
+                    </b:panel>
+                </b:column>                                    
+            </b:row>
         </b:container>
     </h:body>
 </html>
