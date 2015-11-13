@@ -4,7 +4,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:o="http://omnifaces.org/ui"      
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez">
     
     <h:head>
         <title>Secured Home Page some Bootsfaces layout and stuff.</title>         
@@ -24,6 +26,8 @@
             }
         </style>
                 
+      
+        <o:importConstants type="fhw.FrogTypeEnum" />
         <b:container fluid="true" >
             <b:row >
                 <b:column span="4">
@@ -35,6 +39,12 @@
                             <b:selectOneMenu id="frogType" fieldSize="md" value="#{frogController.type}">
                                 <f:selectItems value="#{enumFactory.frogTypes}" var="ft" itemLabel="#{ft.label}" itemValue="#{ft}" />
                             </b:selectOneMenu>
+                            
+                            <ez:selectOneDropDown label="alternate frog type" 
+                                                  eyeD="frogType2" 
+                                                  value="#{frogController.type2}" 
+                                                  enums="#{FrogTypeEnum.values()}"/>
+                            
                             <div style="text-align: right">
                                 <b:buttonGroup id="butts" size="md"  >                                
                                     <b:commandButton value="Submit"  action="#{frogController.submit()}"/>
@@ -61,8 +71,9 @@
                     <b:panel title="Submitted Data">
 
                     </b:panel>
-                </b:column>                                    
+                </b:column>
             </b:row>
+            
         </b:container>
     </h:body>
 </html>

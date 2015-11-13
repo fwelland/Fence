@@ -9,6 +9,7 @@ public class FrogController
 {
     private String name; 
     private FrogTypeEnum type; 
+    private FrogTypeEnum type2; 
     
     private Frog frog; 
     
@@ -40,6 +41,18 @@ public class FrogController
         frog = new Frog(); 
         frog.setName(name);
         frog.setType(type);
+        
+        System.out.println("what is frog type 2?  " + type2); 
+    }
+
+    public FrogTypeEnum getType2()
+    {
+        return type2;
+    }
+
+    public void setType2(FrogTypeEnum type2)
+    {
+        this.type2 = type2;
     }
     
 }

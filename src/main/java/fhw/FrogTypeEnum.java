@@ -1,6 +1,7 @@
 package fhw;
 
 public enum FrogTypeEnum 
+    implements BaseEnum
 {    
     GREEN(1L,"Green Frog"), 
     BLUE(2L, "Blue Frog"), 
@@ -30,5 +31,11 @@ public enum FrogTypeEnum
     public void setLabel(String label) {
         this.label = label;
     }
+
+//    @Override
+//    public FrogTypeEnum[] vals()
+//    {
+//        return(FrogTypeEnum.values());
+//    }
     
 }
