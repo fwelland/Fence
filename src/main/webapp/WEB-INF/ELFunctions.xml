@@ -5,11 +5,11 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
 
     <namespace>http://fhw.com/functions</namespace>
-
-    <function>
-        <function-name>inputFailsValidation</function-name>
-        <function-class>fhw.ELFunctions</function-class>
-        <function-signature>Boolean inputFailsValidation(javax.faces.component.UIInput)</function-signature>
-    </function>
     
+    <function>
+        <function-name>inputFailedValidation</function-name>
+        <function-class>fhw.ELFunctions</function-class>
+        <function-signature>Boolean inputFailedValidation(java.lang.String)</function-signature>
+    </function>
+        
 </facelet-taglib>
