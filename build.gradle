@@ -11,7 +11,8 @@ sourceCompatibility = '1.8'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 dependencies {
-    providedCompile 'javax:javaee-api:7.0'
+    providedCompile 'javax:javaee-api:7.0',
+                    'org.projectlombok:lombok:1.16.6'
     
     compile 'net.bootsfaces:bootsfaces:0.8.0-SNAPSHOT',
             'org.picketlink:picketlink-api:2.7.0.Final',

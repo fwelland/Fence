@@ -5,8 +5,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:o="http://omnifaces.org/ui"      
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez">
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
+      xmlns:funcs="http://fhw.com/functions" >
     
     <h:head>
         <title>Secured Home Page some Bootsfaces layout and stuff.</title>         
@@ -33,6 +33,7 @@
                 <b:column span="4">
                     <b:panel id="frogPanel"  title="Create A BIG Frog!">
                         <h:form id="createFrogForm" prependId="false">
+                            <b:messages/>
                             <b:label text="Frog's name" />
                             <b:inputText id="frogName" fieldSize="md" value="#{frogController.name}"/>
                             <b:label text="Frog's Type" />
@@ -43,7 +44,15 @@
                             <ez:selectOneDropDown label="alternate frog type" 
                                                   eyeD="frogType2" 
                                                   value="#{frogController.type2}" 
+                                                  enums="#{FrogTypeEnum.values()}"
+                                                  isValid="true"/>
+                            
+                            <ez:selectOneDropDown label="alternate frog type (no blue)" 
+                                                  eyeD="frogType3" 
+                                                  value="#{frogController.type3}" 
                                                   enums="#{FrogTypeEnum.values()}"/>
+                            
+                            
                             
                             <div style="text-align: right">
                                 <b:buttonGroup id="butts" size="md"  >                                

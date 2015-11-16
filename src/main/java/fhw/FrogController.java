@@ -2,39 +2,28 @@ package fhw;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Named
 @RequestScoped
+@Data
 public class FrogController 
 {
     private String name; 
     private FrogTypeEnum type; 
-    private FrogTypeEnum type2; 
+    private FrogTypeEnum type2;     
     
+    @FrogsNotAllowed(blackList = {"Blue Frog"}, message = "blue frogs are not allowed")
+    private FrogTypeEnum type3; 
+
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
     private Frog frog; 
     
     public FrogController() {}
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public FrogTypeEnum getType()
-    {
-        return type;
-    }
-
-    public void setType(FrogTypeEnum type)
-    {
-        this.type = type;
-    }
-    
     
     public void submit()
     {
@@ -43,16 +32,5 @@ public class FrogController
         frog.setType(type);
         
         System.out.println("what is frog type 2?  " + type2); 
-    }
-
-    public FrogTypeEnum getType2()
-    {
-        return type2;
-    }
-
-    public void setType2(FrogTypeEnum type2)
-    {
-        this.type2 = type2;
-    }
-    
+    }    
 }

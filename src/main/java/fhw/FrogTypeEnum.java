@@ -20,22 +20,25 @@ public enum FrogTypeEnum
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
+    @Override
+    public String getLabel() 
+    {
         return label;
     }
-
-    public void setLabel(String label) {
-        this.label = label;
+    
+    public static FrogTypeEnum find(String l)
+    {
+        FrogTypeEnum fte = null;
+        for(FrogTypeEnum f : values())
+        {
+            if(f.getLabel().equals(l))
+            {
+                fte = f;
+                break;
+            }
+        }
+        return(fte);
+        
     }
 
-//    @Override
-//    public FrogTypeEnum[] vals()
-//    {
-//        return(FrogTypeEnum.values());
-//    }
-    
 }
