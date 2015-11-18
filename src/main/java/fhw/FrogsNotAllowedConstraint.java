@@ -30,24 +30,27 @@ public class FrogsNotAllowedConstraint
         boolean b = true; 
         FrogTypeEnum fte = null; 
         Class clazz = t.getClass();
-        if(String.class.isInstance(t))
+        if(t instanceof String)
         {
             fte = FrogTypeEnum.find((String)t); 
         }
-        else if(FrogTypeEnum.class.isInstance(t))
+        else if(t instanceof FrogTypeEnum )
         {
             fte = (FrogTypeEnum)t;
-        }
-        else
+        }        
+        else if(!(t instanceof NullBaseEnum))
         {
             throw new ValidationException("unsuported type: " + clazz.getName());
-        }
-        for(FrogTypeEnum f : blackList)
+        }        
+        if(null!= fte)
         {
-            if(f.equals(fte))
+            for(FrogTypeEnum f : blackList)
             {
-                b = false;
-                break;
+                if(f.equals(fte))
+                {
+                    b = false;
+                    break;
+                }
             }
         }
         return(b);

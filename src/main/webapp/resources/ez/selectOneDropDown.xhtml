@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
         xmlns:b="http://bootsfaces.net/ui"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:cc="http://xmlns.jcp.org/jsf/composite"
@@ -7,19 +7,25 @@
         xmlns:funcs="http://fhw.com/functions" >
 
     <cc:interface >
-        <cc:attribute name="eyeD" required="true" />
-        <cc:attribute name="value" required="true" type="fhw.BaseEnum"/>
-        <cc:attribute name="enums" required="true" />
-        <cc:attribute name="label" required="true" />
-        <cc:attribute name="includeEmpty" default="false" />
+        <cc:attribute name="eyeD"   required="true" type="java.lang.String"/>
+        <cc:attribute name="value"  required="true" type="fhw.BaseEnum"/>
+        <cc:attribute name="enums"  required="true" />
+        <cc:attribute name="label"  required="true" type="java.lang.String"/>
+        <cc:attribute name="includeEmpty" type="java.lang.Boolean" default="true" />
+        <cc:attribute name="emptyItemLabel" type="java.lang.String" default="please select"/>
     </cc:interface>
 
     <cc:implementation>
-        <ui:param name="severityValue" value="#{ funcs:inputFailedValidation( cc.attrs.eyeD ) ? 'default' : 'danger' }" />
-        <b:label text="#{cc.attrs.label}" severity="#{severityValue}"/>
-        <b:selectOneMenu id="#{cc.attrs.eyeD}" fieldSize="md" value="#{cc.attrs.value}"  >            
-            <f:selectItem itemValue="" itemLabel="" />            
-            <f:selectItems value="#{cc.attrs.enums}" var="e" itemLabel="#{e.label}" itemValue="#{e}" />
-        </b:selectOneMenu>  
+        <div id="#{cc.clientId}">
+            <ui:param name="severityValue" value="#{ funcs:inputFailedValidation( cc.attrs.eyeD ) ? 'default' : 'danger' }" />
+            <b:label text="#{cc.attrs.label}" severity="#{severityValue}"/>
+                        
+            <b:selectOneMenu id="#{cc.attrs.eyeD}" fieldSize="md" value="#{cc.attrs.value}" >  
+                <ui:fragment rendered="#{cc.attrs.includeEmpty}">
+                    <f:selectItem itemValue="#{null}" itemLabel="#{cc.attrs.emptyItemLabel}" /> 
+                </ui:fragment>                
+                <f:selectItems value="#{cc.attrs.enums}" var="e" itemLabel="#{e.label}" itemValue="#{e}" />
+            </b:selectOneMenu>  
+        </div>
     </cc:implementation>
-</ui:composition>
+</ui:component>
