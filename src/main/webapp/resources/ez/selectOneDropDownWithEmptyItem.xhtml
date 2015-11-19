@@ -12,15 +12,17 @@
         <cc:attribute name="eyeD"               required="true"     type="java.lang.String"/>
         <cc:attribute name="value"              required="true"     type="fhw.BaseEnum"/>
         <cc:attribute name="enums"              required="true" />
-        <cc:attribute name="label"              required="true"     type="java.lang.String"/>       
+        <cc:attribute name="label"              required="true"     type="java.lang.String"/>
+        <cc:attribute name="emptyItemLabel"     default="select"    type="java.lang.String" />
     </cc:interface>
 
     <cc:implementation>
         <div id="#{cc.clientId}">
             <ui:param name="severityValue" value="#{ funcs:inputFailedValidation( cc.attrs.eyeD ) ? 'default' : 'danger' }" />
             <b:label text="#{cc.attrs.label}" severity="#{severityValue}"/>
-            <b:selectOneMenu id="#{cc.attrs.eyeD}" fieldSize="md" value="#{cc.attrs.value}" >                 
-                <tags:enumSelectItems enums="#{cc.attrs.enums}" />                                                
+            <b:selectOneMenu id="#{cc.attrs.eyeD}" fieldSize="md" value="#{cc.attrs.value}" > 
+                <tags:enumSelectItemsWithEmptyItem  enums="#{cc.attrs.enums}"
+                                                    mtLable="#{cc.attrs.emptyItemLabel}"/>               
             </b:selectOneMenu>  
         </div>
     </cc:implementation>
