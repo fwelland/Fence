@@ -5,8 +5,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:o="http://omnifaces.org/ui"      
-      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez">
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
+    <ui:debug hotkey="k"/>
     <h:head>
         <title>Secured Home Page some Bootsfaces layout and stuff.</title>         
     </h:head>    
@@ -49,7 +51,7 @@
                                                   eyeD="frogType3" 
                                                   value="#{frogController.type3}" 
                                                   enums="#{FrogTypeEnum.values()}"
-                                                  includeEmpty="true"/>
+                                                  includeEmptyItem="#{true}"/>
                             
                             
                             
