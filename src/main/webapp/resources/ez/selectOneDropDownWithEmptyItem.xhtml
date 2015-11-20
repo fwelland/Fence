@@ -10,7 +10,7 @@
 
     <cc:interface >
         <cc:attribute name="eyeD"               required="true"     type="java.lang.String"/>
-        <cc:attribute name="value"              required="true"     type="fhw.BaseEnum"/>
+        <cc:attribute name="value"              required="true" />
         <cc:attribute name="enums"              required="true" />
         <cc:attribute name="label"              required="true"     type="java.lang.String"/>
         <cc:attribute name="emptyItemLabel"     default="select"    type="java.lang.String" />
@@ -20,9 +20,9 @@
         <div id="#{cc.clientId}">
             <ui:param name="severityValue" value="#{ funcs:inputFailedValidation( cc.attrs.eyeD ) ? 'default' : 'danger' }" />
             <b:label text="#{cc.attrs.label}" severity="#{severityValue}"/>
-            <b:selectOneMenu id="#{cc.attrs.eyeD}" fieldSize="md" value="#{cc.attrs.value}" > 
-                <f:selectItem value="#{null}" itemLabel="#{cc.attrs.emptyItemLabel}" />
-                <f:selectItems value="#{cc.attrs.enums}" var="e" itemLabel="#{e.label}" itemValue="#{e}" />
+            <b:selectOneMenu id="#{cc.attrs.eyeD}" fieldSize="md" value="#{cc.attrs.value}" >
+                <f:selectItem itemValue="" itemLabel="#{cc.attrs.emptyItemLabel}" noSelectionOption="true" />
+                <f:selectItems value="#{cc.attrs.enums}" var="e" itemLabel="#{e.label}" itemValue="#{e}"  />                
             </b:selectOneMenu>  
         </div>
     </cc:implementation>

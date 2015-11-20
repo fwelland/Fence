@@ -2,7 +2,6 @@ package fhw;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import javax.validation.ValidationException;
 
 
 public class FrogsNotAllowedConstraint
@@ -28,24 +27,27 @@ public class FrogsNotAllowedConstraint
     public boolean isValid(Object t, ConstraintValidatorContext cvc)
     {
         boolean b = true; 
-        FrogTypeEnum fte = null; 
-        Class clazz = t.getClass();
-        if(t instanceof String)
+        if(null != t)
         {
-            fte = FrogTypeEnum.find((String)t); 
-        }
-        else if(t instanceof FrogTypeEnum )
-        {
-            fte = (FrogTypeEnum)t;
-        }        
-        if(null!= fte)
-        {
-            for(FrogTypeEnum f : blackList)
+            FrogTypeEnum fte = null;         
+            Class clazz = t.getClass();
+            if(t instanceof String)
             {
-                if(f.equals(fte))
+                fte = FrogTypeEnum.find((String)t); 
+            }
+            else if(t instanceof FrogTypeEnum )
+            {
+                fte = (FrogTypeEnum)t;
+            }        
+            if(null!= fte)
+            {
+                for(FrogTypeEnum f : blackList)
                 {
-                    b = false;
-                    break;
+                    if(f.equals(fte))
+                    {
+                        b = false;
+                        break;
+                    }
                 }
             }
         }

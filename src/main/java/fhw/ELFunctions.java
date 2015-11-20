@@ -2,10 +2,7 @@ package fhw;
 
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
-import javax.faces.component.UIViewRoot;
-import javax.faces.context.FacesContext;
 import org.omnifaces.util.Callback.WithArgument;
-import org.omnifaces.util.Components;
 import static org.omnifaces.util.Components.forEachComponent;
 
 
@@ -24,7 +21,6 @@ public class ELFunctions
                 @Override public void invoke(UIComponent component) 
                 {
                     String id = component.getId();
-                    System.out.println("id is:  " + id);
                     if(id.endsWith(inputId))
                     {                        
                         UIInput in = (UIInput)component;
