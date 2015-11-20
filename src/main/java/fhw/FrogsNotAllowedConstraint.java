@@ -38,10 +38,6 @@ public class FrogsNotAllowedConstraint
         {
             fte = (FrogTypeEnum)t;
         }        
-        else if(!(t instanceof NullBaseEnum))
-        {
-            throw new ValidationException("unsuported type: " + clazz.getName());
-        }        
         if(null!= fte)
         {
             for(FrogTypeEnum f : blackList)

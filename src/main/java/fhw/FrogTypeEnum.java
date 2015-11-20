@@ -26,6 +26,12 @@ public enum FrogTypeEnum
         return label;
     }
     
+    @Override 
+    public FrogTypeEnum findByLabel(String l)
+    {
+        return(find(l));
+    }
+    
     public static FrogTypeEnum find(String l)
     {
         FrogTypeEnum fte = null;

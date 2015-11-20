@@ -1,8 +1,7 @@
 package fhw;
 
-public interface BaseEnum
+public interface BaseEnum<T extends Enum>
 {
-    public String getLabel();   
-    
-//    public <T extends Enum & fhw.BaseEnum > T[] vals(); 
+    public String getLabel(); 
+    public T findByLabel(String l);
 }

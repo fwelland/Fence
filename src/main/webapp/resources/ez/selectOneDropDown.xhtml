@@ -20,7 +20,7 @@
             <ui:param name="severityValue" value="#{ funcs:inputFailedValidation( cc.attrs.eyeD ) ? 'default' : 'danger' }" />
             <b:label text="#{cc.attrs.label}" severity="#{severityValue}"/>
             <b:selectOneMenu id="#{cc.attrs.eyeD}" fieldSize="md" value="#{cc.attrs.value}" >                 
-                <tags:enumSelectItems enums="#{cc.attrs.enums}" />                                                
+                <f:selectItems value="#{cc.attrs.enums}" var="e" itemLabel="#{e.label}" itemValue="#{e}" />
             </b:selectOneMenu>  
         </div>
     </cc:implementation>

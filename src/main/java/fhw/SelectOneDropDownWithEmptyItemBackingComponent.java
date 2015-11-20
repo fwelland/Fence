@@ -6,12 +6,13 @@ import java.util.Map;
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UINamingContainer;
 
-@FacesComponent("selectOneDropDown")
-public class SelectOneDropDownBackingComponent
+@FacesComponent("selectOneDropDownWithEmptyItem")
+public class SelectOneDropDownWithEmptyItemBackingComponent
     extends UINamingContainer
 {
-    public SelectOneDropDownBackingComponent() {}
+    public SelectOneDropDownWithEmptyItemBackingComponent() {}
         
+    
     public BaseEnum[] getEnumerations()
     {        
         BaseEnum newVals[]; 
@@ -20,17 +21,18 @@ public class SelectOneDropDownBackingComponent
         Collection c  = (Collection)attrs.get("enums");
         String mtLabel = (String)attrs.get("emptyItemLabel");
         ArrayList<BaseEnum> al = new ArrayList<>();
-        if(incEmpty)
-        {
-            NullBaseEnum b = new NullBaseEnum();
-            b.setLabel(mtLabel);
-            newVals = new BaseEnum[c.size() + 1];
-            al.add(b);        
-        }
-        else
-        {
-            newVals = new BaseEnum[c.size()];
-        }
+//        if(incEmpty)
+//        {
+//            NullBaseEnum b = new NullBaseEnum();
+//            b.setLabel(mtLabel);
+//            newVals = new BaseEnum[c.size() + 1];
+//            al.add(b);        
+//        }
+//        else
+//        {
+//            newVals = new BaseEnum[c.size()];
+//        }
+        newVals = new BaseEnum[c.size()];
         al.addAll(c);
         al.toArray(newVals);            
         return(newVals); 

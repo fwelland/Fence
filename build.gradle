@@ -27,7 +27,7 @@ if (project.hasProperty('evaluatingIDE') && project.property('evaluatingIDE') ==
 }
 
 
-ext.deployBase="/opt/wildfly-9.0.2.Final/standalone/deployments"
+ext.deployBase="/opt/wildfly-9.0.1.Final/standalone/deployments"
 ext.deployTarget="$deployBase/$war.archiveName"
 ext.dodeployLCFname = "$deployTarget" + ".dodeploy"
 ext.deployedLCFname="$deployTarget" + ".deployed"
