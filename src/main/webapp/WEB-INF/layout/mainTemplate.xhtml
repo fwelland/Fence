@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>BootsFaces picketlink mashup</title>
+        <meta name="description" content="BootsFaces an picket link mashup" />
+        <meta name="KEYWORDS" content="jsf, bootstrap, framework, java, enterprise, server, faces, jquery, usability, next-gen, web, html5, easy, modern, well-designed, website, state-of-the-art" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>        
+        <style type="text/css">            
+            .panel-heading
+            {
+                border-color: #337ab7;
+                background-color: #337ab7;                
+            }
+
+            .panel
+            {
+                border:1px solid #337ab7;                 
+            }
+        </style>        
+    </h:head>
+
+    <h:body style="padding-top: 75px;padding-bottom: 75px;" styleClass="body">    
+        <ui:insert name="nbtop">
+            <ui:include src="/WEB-INF/layout/menubar.xhtml"/>
+        </ui:insert>
+        
+        <b:container fluid="true" >
+            <ui:insert name="content"/>
+        </b:container>
+        
+        <ui:insert name="footer">
+            <ui:include src="/WEB-INF/layout/footer.xhtml"/>
+        </ui:insert>        
+    </h:body>
+</html>
