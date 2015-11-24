@@ -30,15 +30,10 @@ public class FrogsNotAllowedConstraint
         if(null != t)
         {
             FrogTypeEnum fte = null;         
-            Class clazz = t.getClass();
-            if(t instanceof String)
-            {
-                fte = FrogTypeEnum.find((String)t); 
-            }
-            else if(t instanceof FrogTypeEnum )
+            if(t instanceof FrogTypeEnum )
             {
                 fte = (FrogTypeEnum)t;
-            }        
+            }
             if(null!= fte)
             {
                 for(FrogTypeEnum f : blackList)
