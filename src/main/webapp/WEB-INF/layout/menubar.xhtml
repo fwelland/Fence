@@ -3,24 +3,27 @@
 <ui:fragment xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui">          
-    <b:navBar brand="Home" brandHref="#{request.contextPath}/secure/home.xhtml" inverse="true" fixed="top">
-        <b:container>
-        <b:navbarLinks>
-            <b:navLink />
-            <b:navLink />
-            <b:dropMenu value="Something">
-                <b:navLink value="Google" href="https://google.com" icon="check" />
-            </b:dropMenu>
-            
-            <b:dropMenu value="Something Else">
-                <b:navLink value="Amazon" href="http://amazon.com" iconAwesome="table" />
-            </b:dropMenu>            
-        </b:navbarLinks>
-        <b:navbarLinks pull="right">
-            <b:navLink outcome="/secure/home.xhtml" value="Home" iconAwesome="desktop" />
-        </b:navbarLinks>
-        </b:container>
-    </b:navBar>
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:form>
+        <b:navBar brand="Home" brandHref="#{request.contextPath}/secure/home.xhtml" inverse="true" fixed="top">
+            <b:container>
+                <b:navbarLinks>
+                    <b:navLink />
+                    <b:navLink />
+                    <b:dropMenu value="Something">
+                        <b:navLink value="Google" href="https://google.com" icon="check" />
+                    </b:dropMenu>
 
+                    <b:dropMenu value="Something Else">
+                        <b:navLink value="Amazon" href="http://amazon.com" iconAwesome="table" />
+                    </b:dropMenu>
+                </b:navbarLinks>
+                <b:navbarLinks pull="right">
+                    <b:navLink value="welcome #{identity.account.loginName}" href="#"/>
+                    <b:navLink outcome="/secure/home.xhtml" value="Home" iconAwesome="desktop" />
+                    <b:navCommandLink   outcome="/logout.xhtml" value="logout" icon="log-out" />
+                </b:navbarLinks>
+            </b:container>
+        </b:navBar>
+    </h:form>
 </ui:fragment>
