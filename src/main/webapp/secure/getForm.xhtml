@@ -8,6 +8,23 @@
       xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="content">
-        Hello 
+        <f:metadata>
+            <f:viewParam name="frogColor" value="#{submittedFrog.color}" />
+        </f:metadata>        
+        <b:panel title="Here we go">
+            <o:form >
+                Hello! 
+                <br/>
+                The submitted frog color is #{submittedFrog.color}       
+                <br/>
+                <b:inputText id="inputValue" label="this is a label" value="#{submittedFrog.val}" converterMessage="not integer"> 
+                    <f:convertNumber integerOnly="true" />
+                </b:inputText>
+                <b:messages for="inputValue"/>
+                <br/>
+                <b:commandButton value="Press Me!" />
+            </o:form>            
+        </b:panel>        
+                        
     </ui:define>
 </ui:composition>
