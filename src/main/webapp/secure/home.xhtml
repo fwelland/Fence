@@ -45,8 +45,21 @@
                 </b:panel>
             </b:column>
             <b:column span="4" >
-                <b:panel title="Submitted Data">
-
+                <b:panel title="List of Links">
+                    <b:listLinks >
+                        <b:navLink header="List of get like URLs"/>
+                        <b:navLink outcome="getForm" value="Blue Frog" >
+                            <f:param name="frogColor" value="#{FrogTypeEnum.BLUE.label}"/>
+                        </b:navLink>
+                        
+                        <b:navLink outcome="getForm" value="Green Frog" >
+                            <f:param name="frogColor" value="#{FrogTypeEnum.GREEN.label}"/>
+                        </b:navLink>
+                        
+                        <b:navLink outcome="getForm" value="Purple Frog" >
+                            <f:param name="frogColor" value="#{FrogTypeEnum.PURPLE.label}"/>
+                        </b:navLink>                        
+                    </b:listLinks>
                 </b:panel>
             </b:column>
         </b:row>
