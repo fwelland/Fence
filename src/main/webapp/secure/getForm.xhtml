@@ -6,25 +6,44 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:o="http://omnifaces.org/ui"
       xmlns:ez="http://xmlns.jcp.org/jsf/composite/ez"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
     <ui:define name="content">
         <f:metadata>
             <f:viewParam name="frogColor" value="#{submittedFrog.color}" />
-        </f:metadata>        
+        </f:metadata>
         <b:panel title="Here we go">
-            <o:form >
-                Hello! 
+            <h:form prependId="false" >
+                Hello!
                 <br/>
-                The submitted frog color is #{submittedFrog.color}       
+                The submitted frog color is #{submittedFrog.color}
                 <br/>
-                <b:inputText id="inputValue" label="this is a label" value="#{submittedFrog.val}" converterMessage="not integer"> 
-                    <f:convertNumber integerOnly="true" />
-                </b:inputText>
-                <b:messages for="inputValue"/>
+
+                <div class="form-group" >
+                    <div class="col-md-3">
+                        <input jsf:id="inputValue" jsf:value="#{submittedFrog.val}" class="form-control" type="number" placeholder="number please" />
+                        <b:messages for="inputValue" showSummary="false" />
+                    </div>
+                </div>
+
                 <br/>
-                <b:commandButton value="Press Me!" />
-            </o:form>            
-        </b:panel>        
-                        
+                <h:commandButton value="Press Me!"  />
+            </h:form>
+        </b:panel>
+
+        <b:panel title="Session Info">
+            <b:dataTable value="#{facesContext.externalContext.sessionMap}" var="sessObj" >
+                <b:column >
+                    <f:facet name="header">name</f:facet>
+                    <h:outputText>#{sessObj.name}</h:outputText>
+                </b:column>
+                <b:column >
+                    <f:facet name="value">value</f:facet>
+                    <h:outputText>sessObj.value</h:outputText>
+                </b:column>
+            </b:dataTable>
+
+        </b:panel>
     </ui:define>
 </ui:composition>

@@ -47,55 +47,63 @@
             <b:column span="4" >
                 <b:panel title="List of Links">
                     <b:listLinks >
-                        <b:navLink header="List of get like URLs"/>
-                        <b:navLink outcome="getForm" value="Blue Frog" >
-                            <f:param name="frogColor" value="#{FrogTypeEnum.BLUE.label}"/>
-                        </b:navLink>
-                        
-                        <b:navLink outcome="getForm" value="Green Frog" >
-                            <f:param name="frogColor" value="#{FrogTypeEnum.GREEN.label}"/>
-                        </b:navLink>
-                        
+
+
                         <b:navLink outcome="getForm" value="Purple Frog" >
                             <f:param name="frogColor" value="#{FrogTypeEnum.PURPLE.label}"/>
-                        </b:navLink>                        
+                        </b:navLink>
                     </b:listLinks>
                     <hr/>
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
+                                <th>sample</th>
                                 <th>Form</th>
                                 <th>viewParam</th>
-                                <th>URL on normal 'get'</th>
-                                <th>submit no validation</th>
-                                <th>validation conversion error</th>
+                                <th>GET</th>
+                                <th>POST no validation issue</th>
+                                <th>POST validation validation issue</th>
+                                <th>Other Stuff</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
+                                <th>sample</th>
                                 <th>Form</th>
                                 <th>viewParam</th>
-                                <th>URL on normal 'get'</th>
-                                <th>submit no validation</th>
-                                <th>validation conversion error</th>
+                                <th>GET</th>
+                                <th>POST no validation issue</th>
+                                <th>POST validation validation issue</th>
+                                <th>A discussion of viewParam on SO is
+                                    <h:outputLink value="http://stackoverflow.com/questions/6377798/what-can-fmetadata-fviewparam-and-fviewaction-be-used-for" >here</h:outputLink>
+                                </th>
                             </tr>
-                        </tfoot>                        
-                        
-                        
+                        </tfoot>
+
                         <tbody>
                             <tr>
-                                <td>h:form </td>
+                                <td>
+                                    <h:link outcome="getForm" value="Blue Frog"  >
+                                        <f:param name="frogColor" value="#{FrogTypeEnum.BLUE.label}"/>
+                                    </h:link>
+                                </td>
+                                <td>h:form</td>
                                 <td>f:viewParam</td>
-                                <td>has get parameter in address bar</td>
+                                <td>GET has param in address bar (first landing)</td>
                                 <td></td>
-                                <td></td>                                
+                                <td></td>
                             </tr>
                             <tr>
+                                <td>
+                                    <h:link outcome="getForm_1" value="Green Frog">
+                                        <f:param name="frogColor" value="#{FrogTypeEnum.GREEN.label}"/>
+                                    </h:link>
+                                </td>
                                 <td>o:form </td>
                                 <td>f:viewParam</td>
-                                <td>has get parameter in address bar</td>
-                                <td>drops it get param (but f:viewParam still sees it</td>
-                                <td>fjfjf</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
