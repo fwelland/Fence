@@ -1,5 +1,9 @@
 package fhw;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.view.facelets.FaceletContext;
@@ -24,7 +28,6 @@ public class SubmittedFrog
 
     public String getColor()
     {
-        //facesContext.getExternalContext().getSessionMap()
         System.out.println("getting color " + color);
         return(color);
     }
@@ -34,4 +37,16 @@ public class SubmittedFrog
         System.out.println("setting color with " + c );
         color = c;
     }
+    
+    
+    public Set<Map.Entry<String,Object>> getSessionSet()
+    {
+        return(facesContext.getExternalContext().getSessionMap().entrySet());
+    }
+    
+    public void setSessionSet(Set<Map.Entry<String,Object>> s)
+    {
+        
+    }    
+    
 }
