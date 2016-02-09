@@ -33,15 +33,15 @@
         </b:panel>
 
         <b:panel title="Session Info">
-            <b:dataTable value="#{facesContext.externalContext.sessionMap}" var="sessObj" >
-                <b:column >
-                    <f:facet name="header">name</f:facet>
-                    <h:outputText>#{sessObj.name}</h:outputText>
-                </b:column>
-                <b:column >
-                    <f:facet name="value">value</f:facet>
-                    <h:outputText>sessObj.value</h:outputText>
-                </b:column>
+            <b:dataTable value="#{submittedFrog.sessionSet}" var="ent" >
+                <h:column >
+                    <f:facet name="header">key name</f:facet>
+                    <h:outputText value="#{ent.key}" />
+                </h:column>
+                <h:column >
+                    <f:facet name="header">value</f:facet>
+                    <h:outputText value="#{ent.value}" />
+                </h:column>
             </b:dataTable>
 
         </b:panel>
