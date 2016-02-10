@@ -88,11 +88,21 @@
                                 <td>h:form</td>
                                 <td>f:viewParam</td>
                                 <td>GET has param in address bar (first landing)</td>
-                                <td></td>
-                                <td></td>
+                                <td>
+                                    postbacks w/o validation issues will NOT preserve or recycle the value. 
+                                    value not present in address bar after postback
+                                </td>
+                                <td>
+                                    postback w validations issue will 'loose' the value of the viewParam. 
+                                    value not present in address bar after postback
+                                </td>
                                 <td>
                                     A discussion of viewParam on SO is
-                                    <h:outputLink value="http://stackoverflow.com/questions/6377798/what-can-fmetadata-fviewparam-and-fviewaction-be-used-for" >here</h:outputLink>                                
+                                    <h:outputLink value="http://stackoverflow.com/questions/6377798/what-can-fmetadata-fviewparam-and-fviewaction-be-used-for" >here</h:outputLink>
+                                    <p>
+                                        <b>View parameters are statefull</b>, by default. JSF will store the view param in the 
+                                        view state and thus processed again on a postBack.   Read more  <h:outputLink value="http://jdevelopment.nl/stateless-stateful-jsf-view-parameters/" >here</h:outputLink>
+                                    </p>                                                                      
                                 </td>                                    
                             </tr>
                             <tr>
@@ -101,13 +111,32 @@
                                         <f:param name="frogColor" value="#{FrogTypeEnum.GREEN.label}"/>
                                     </h:link>
                                 </td>
-                                <td>o:form </td>
-                                <td>f:viewParam</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>                                
+                                <td>o:form includeRequestParams="true"</td>
+                                <td>o:viewParam</td>
+                                <td>URL contains argument and viewParam works on first landing as expected</td>
+                                <td>postbacks w/o validation issue looses value; but value still in address bar</td>
+                                <td>postbacks w validation issue looses value; but value still in address bar</td>
+                                <td>so value persists accross post-backs reguardless via URI, but the o:viewParam is 
+                                    not reevaluated on the post back
+                                </td>                                
                             </tr>
+                            
+                            <tr>
+                                <td>
+                                    <h:link outcome="getForm_2" value="Purple Frog">
+                                        <f:param name="frogColor" value="#{FrogTypeEnum.PURPLE.label}"/>
+                                    </h:link>
+                                </td>
+                                <td>o:form includeRequestParams="true"</td>
+                                <td>f:viewParam</td>
+                                <td>URL contains argument and viewParam works on first landing as expected</td>
+                                <td>postbacks w/o validation issue retains value; and value still in address bar</td>
+                                <td>postbacks w validation issue looses value; but value still in address bar</td>
+                                <td>
+                                    This is near perfect; except for the validation case.  f:viewParam is not 
+                                    reevaluated upon post back when validation failure.   
+                                </td>                                
+                            </tr>                            
                         </tbody>
                     </table>
                 </b:panel>

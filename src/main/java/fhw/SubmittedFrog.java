@@ -1,12 +1,13 @@
 package fhw;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.StateManager;
+import javax.faces.component.UIViewParameter;
 import javax.faces.context.FacesContext;
-import javax.faces.view.facelets.FaceletContext;
+import javax.faces.view.ViewMetadata;
 import javax.inject.Inject;
 import javax.inject.Named;
 import lombok.Data;
@@ -49,4 +50,26 @@ public class SubmittedFrog
         
     }    
     
+    public String getVState()
+    {
+        
+        StateManager sm = facesContext.getApplication().getStateManager();
+        return( sm.getViewState(facesContext)); 
+        
+    }
+    
+    public void setVState(String s)
+    {
+    
+    }
+    
+    public Collection<UIViewParameter> getViewParameters()
+    {
+        return(ViewMetadata.getViewParameters(facesContext.getViewRoot()));     
+    }
+    
+    public void setViewParameter(Collection<UIViewParameter> uv)
+    {
+        
+    }
 }

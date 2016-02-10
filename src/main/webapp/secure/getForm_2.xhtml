@@ -10,12 +10,11 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:jsf="http://xmlns.jcp.org/jsf">
     <ui:define name="content">
-        <ui:debug rendered="true" hotkey="y" />
         <f:metadata>
-            <f:viewParam name="frogColor" value="#{submittedFrog.color}" />
+            <f:viewParam name="frogColor" value="#{submittedFrog.color}"  />
         </f:metadata>
         <b:panel title="Here we go">
-            <h:form prependId="false" >
+            <o:form includeRequestParams="true">                
                 Hello!
                 <br/>
                 The submitted frog color is #{submittedFrog.color}
@@ -28,7 +27,7 @@
                 </div>
                 <br/>
                 <h:commandButton value="Press Me!"  />
-            </h:form>
+            </o:form>
         </b:panel>
         
         <b:panel title="View State">
