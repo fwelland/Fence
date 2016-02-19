@@ -15,9 +15,13 @@
             <h:form prependId="false" >
                 Hello!
                 <br/>
-                <b:button id="okButton" value="This is an ok button" pt:data-content="Blah Blah"/>
-                <ez:popover for="okButton"> 
-                </ez:popover>
+                <b:button id="okButton" value="This is an ok button" 
+                          pt:data-content="Content of the Popup" 
+                          pt:data-toggle="popover" 
+                          pt:data-placement="bottom" 
+                          pt:data-trigger="hover"
+                          pt:data-title="The Title"/>
+                <ez:popover for="okButton" /> 
             </h:form>
         </b:panel>        
     </ui:define>

@@ -21,14 +21,27 @@
             {
                 border:1px solid #337ab7;                 
             }
-        </style>        
+            
+            
+            #container
+            {
+                padding: 15px;
+            }
+
+            .popover
+            {
+                border: solid red; 
+                width:200px;
+                height:250px;   
+            } 
+        </style>  
     </h:head>
 
     <h:body style="padding-top: 75px;padding-bottom: 75px;" styleClass="body">    
         <ui:insert name="nbtop">
             <ui:include src="/WEB-INF/layout/menubar.xhtml"/>
         </ui:insert>
-        
+                       
         <b:container fluid="true" >
             <ui:insert name="content"/>
         </b:container>
